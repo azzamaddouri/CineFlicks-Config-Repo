@@ -1,0 +1,18 @@
+# API documentation
+springdoc:
+  api-docs:
+    # Path of the OpenAPI documentation in Json format
+    path: /user/v3/api-docs
+  documentation:
+    apiVersion: 1.0
+    title: User Service API
+    description: Services related with how to manage users
+  # Custom properties to define security configuration for documented API
+  security:
+    authorization: Bearer Auth
+    schema: bearer
+    format: JWT
+  swagger-ui:
+    path: /swagger-ui.html
+  webjars:
+    prefix: /webjars

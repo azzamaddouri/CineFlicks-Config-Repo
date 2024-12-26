@@ -10,3 +10,18 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/api/v1/auth/**
+
+# Swagger integration library used to centralize the documentation to every microservice
+# For dev profile, the required url to access it is:
+#   http://localhost:5555/swagger-ui/
+springfox:
+  documentation:
+    swagger:
+      # Custom property to include the path of documented microservices using Swagger v3
+      v3:
+        # Api docs path properties
+        path: /v3/api-docs
+      # Custom property to include the documented microservices using Swagger
+      documentedServices: user-service,auth-service
+      # Custom property to include the documented API version
+      apiVersion: 1.0
