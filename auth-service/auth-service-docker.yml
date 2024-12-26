@@ -1,0 +1,52 @@
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${DISCOVERY_SERVER:http://discovery-server:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: engineers.newgeneration@gmail.com
+    password: qxzhhqontwiwjmnn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  datasource:
+    url: jdbc:postgresql://postgres:5432/user
+    username: admin
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+    baseline-description: "init"
+    baseline-version: 0
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+
+
+application:
+  security:
+    jwt:
+      expiration: 8640000
+      secret-key: 5IoXOaEXoVWjqTKXyNm0j6lFfC1bHOa26GL+8dq03xs=
+  description: It's a Netflix-like application with additional features
+  license: API Licence
+  version: 1.0
+  config:
+    user:
+      service:
+        url: ${USER_SERVER:http://discovery-server:8090}
