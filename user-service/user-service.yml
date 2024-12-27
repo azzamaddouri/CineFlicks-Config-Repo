@@ -1,18 +1,20 @@
 # API documentation
+# In local (dev profile) the URLs are:
+#   1. http://localhost:8090/security/custom/api-docs to get the information in JSON format
+#   2. http://localhost:8090/security/custom/webjars/swagger-ui/index.html to display the UI with all defined endpoints
 springdoc:
   api-docs:
     # Path of the OpenAPI documentation in Json format
-    path: /user/v3/api-docs
+    path: /user/api-docs
   documentation:
     apiVersion: 1.0
     title: User Service API
     description: Services related with how to manage users
   # Custom properties to define security configuration for documented API
   security:
-    authorization: Bearer Auth
-    schema: bearer
-    format: JWT
+    authorization: Basic Auth
+    schema: basic
   swagger-ui:
-    path: /swagger-ui.html
+    path: /user/swagger-ui.html
   webjars:
     prefix: /webjars

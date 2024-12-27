@@ -9,7 +9,7 @@ springdoc:
     description: Services related with how to manage users authentication
   # Custom properties to define security configuration for documented API
   security:
-    authorization: Bearer Auth
+    authorization: Bearer Authentication
     schema: bearer
     format: JWT
   swagger-ui:

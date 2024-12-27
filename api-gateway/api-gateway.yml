@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   cloud:
     gateway:
       routes:
@@ -11,17 +13,16 @@ spring:
           predicates:
             - Path=/api/v1/auth/**
 
-# Swagger integration library used to centralize the documentation to every microservice
-# For dev profile, the required url to access it is:
-#   http://localhost:5555/swagger-ui/
-springfox:
+# Swagger integration library used to centralize the documentation to every microservice.
+# In local (dev profile) the URLs are:
+#   1. http://localhost:8222/v3/api-docs to get the information in JSON format
+#   2. http://localhost:8222/webjars/swagger-ui/index.html to display the UI with all defined endpoints
+springdoc:
   documentation:
-    swagger:
-      # Custom property to include the path of documented microservices using Swagger v3
-      v3:
-        # Api docs path properties
-        path: /v3/api-docs
-      # Custom property to include the documented microservices using Swagger
-      documentedServices: user-service,auth-service
-      # Custom property to include the documented API version
-      apiVersion: 1.0
+    # Custom property to include the documented microservices using Swagger
+    documentedServices: user-service,auth-service
+    # Custom property to include the path of the OpenAPI documentation in Json format of the documented microservices
+    microservicesPath: /api-docs
+  swagger-ui:
+    # Swagger-ui will be accessible from the application root path directly
+    use-root-path: true
